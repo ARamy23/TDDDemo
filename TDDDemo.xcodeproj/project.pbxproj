@@ -15,6 +15,8 @@
 		042CF0092776543000A9D3D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042CF0072776543000A9D3D6 /* LaunchScreen.storyboard */; };
 		042CF0172776546000A9D3D6 /* TDDDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CF0162776546000A9D3D6 /* TDDDemoTests.swift */; };
 		042CF01E277654A300A9D3D6 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CF01D277654A300A9D3D6 /* RegisterViewModel.swift */; };
+		042CF0202776622200A9D3D6 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CF01F2776622200A9D3D6 /* LoginTests.swift */; };
+		042CF0222776638100A9D3D6 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042CF0212776638100A9D3D6 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		042CF0142776546000A9D3D6 /* TDDDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TDDDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		042CF0162776546000A9D3D6 /* TDDDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TDDDemoTests.swift; sourceTree = "<group>"; };
 		042CF01D277654A300A9D3D6 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		042CF01F2776622200A9D3D6 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		042CF0212776638100A9D3D6 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				042CF0072776543000A9D3D6 /* LaunchScreen.storyboard */,
 				042CF00A2776543000A9D3D6 /* Info.plist */,
 				042CF01D277654A300A9D3D6 /* RegisterViewModel.swift */,
+				042CF0212776638100A9D3D6 /* LoginViewModel.swift */,
 			);
 			path = TDDDemo;
 			sourceTree = "<group>";
@@ -96,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				042CF0162776546000A9D3D6 /* TDDDemoTests.swift */,
+				042CF01F2776622200A9D3D6 /* LoginTests.swift */,
 			);
 			path = TDDDemoTests;
 			sourceTree = "<group>";
@@ -204,6 +210,7 @@
 				042CF0012776542F00A9D3D6 /* ViewController.swift in Sources */,
 				042CEFFD2776542F00A9D3D6 /* AppDelegate.swift in Sources */,
 				042CEFFF2776542F00A9D3D6 /* SceneDelegate.swift in Sources */,
+				042CF0222776638100A9D3D6 /* LoginViewModel.swift in Sources */,
 				042CF01E277654A300A9D3D6 /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +220,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				042CF0172776546000A9D3D6 /* TDDDemoTests.swift in Sources */,
+				042CF0202776622200A9D3D6 /* LoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
