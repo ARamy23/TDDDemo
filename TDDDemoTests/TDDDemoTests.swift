@@ -40,7 +40,7 @@ class TDDDemoTests: XCTestCase {
         sut.register()
         
         // THEN
-        XCTAssertEqual(sut.error!, expectedError)
+        XCTAssertTrue(sut.errors.contains(expectedError))
     }
     
     func testEmailIsNotValidWhenInvalid() {
@@ -53,6 +53,39 @@ class TDDDemoTests: XCTestCase {
         sut.register()
         
         // THEN
-        XCTAssertEqual(sut.error!, expectedError)
+        XCTAssertTrue(sut.errors.contains(expectedError))
+    }
+    
+    func testPasswordNotValidWhenEmpty() {
+        // GIVEN
+        let email = "aa@aa.com"
+        let password = ""
+        let expectedError = LocalError(.isEmpty(.password))
+        sut.email = email
+        sut.password = password
+        
+        // WHEN
+        sut.register()
+        
+        // THEN
+        XCTAssertTrue(sut.errors.contains(expectedError))
+    }
+    
+    func testCanDisplayMultipleErrors() {
+        // GIVEN
+        let email = ""
+        let password = ""
+        let expectedErrors = [
+            LocalError(.isEmpty(.email)),
+            LocalError(.isEmpty(.password))
+        ]
+        sut.email = email
+        sut.password = password
+        
+        // WHEN
+        sut.register()
+        
+        // THEN
+        XCTAssertEqual(sut.errors, expectedErrors)
     }
 }

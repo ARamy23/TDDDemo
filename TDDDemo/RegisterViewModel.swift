@@ -40,35 +40,56 @@ enum ValidationCase {
 
 enum Field {
     case email
+    case password
 }
 
 class RegisterViewModel {
     var email: String = ""
-    var error: LocalError?
+    var password: String = ""
+    var errors = [LocalError]()
     
     func register() {
         validate()
     }
     
     func validate() {
-        do {
-            try EmailValidationRule().validate(email: email)
-            
-            
-            
-            // Register...
-        } catch let error as LocalError {
-            self.error = error
-        } catch {
-            assertionFailure()
+        let rules: [ValidationRule] = [
+            EmailValidationRule(email: email),
+            PasswordValidationRule(password: password)
+        ]
+        
+        
+        rules.forEach {
+            do {
+                try $0.validate()
+            } catch let error as LocalError {
+                errors.append(error)
+            } catch {
+                assertionFailure()
+            }
         }
+        
     }
 }
 
-class EmailValidationRule {
-    func validate(email: String) throws {
+protocol ValidationRule {
+    func validate() throws
+}
+
+struct EmailValidationRule: ValidationRule {
+    let email: String
+    
+    func validate() throws {
         guard !email.isEmpty else { throw LocalError(.isEmpty(.email)) }
         guard email.isValidEmail else { throw LocalError(.isInvalid(.email)) }
+    }
+}
+
+struct PasswordValidationRule: ValidationRule {
+    let password: String
+    
+    func validate() throws {
+        guard !password.isEmpty else { throw LocalError(.isEmpty(.password)) }
     }
 }
 
