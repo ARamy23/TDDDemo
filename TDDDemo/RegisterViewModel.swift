@@ -40,10 +40,12 @@ enum ValidationCase {
 
 enum Field {
     case email
+    case password
 }
 
 class RegisterViewModel {
     var email: String = ""
+    var password: String = ""
     var error: LocalError?
     
     func register() {
@@ -53,7 +55,7 @@ class RegisterViewModel {
     func validate() {
         do {
             try EmailValidationRule().validate(email: email)
-            
+            try PasswordValidationRule().validate(password: password)
             
             
             // Register...
@@ -69,6 +71,12 @@ class EmailValidationRule {
     func validate(email: String) throws {
         guard !email.isEmpty else { throw LocalError(.isEmpty(.email)) }
         guard email.isValidEmail else { throw LocalError(.isInvalid(.email)) }
+    }
+}
+
+struct PasswordValidationRule {
+    func validate(password: String) throws {
+        guard !password.isEmpty else { throw LocalError(.isEmpty(.password)) }
     }
 }
 

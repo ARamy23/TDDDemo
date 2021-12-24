@@ -55,4 +55,19 @@ class TDDDemoTests: XCTestCase {
         // THEN
         XCTAssertEqual(sut.error!, expectedError)
     }
+    
+    func testPasswordNotValidWhenEmpty() {
+        // GIVEN
+        let email = "aa@aa.com"
+        let password = ""
+        let expectedError = LocalError(.isEmpty(.password))
+        sut.email = email
+        sut.password = password
+        
+        // WHEN
+        sut.register()
+        
+        // THEN
+        XCTAssertEqual(sut.error!, expectedError)
+    }
 }
